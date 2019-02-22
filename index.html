@@ -91,13 +91,31 @@
             欢抢100个福气红包
           </text>
         </g>
-
+      </g>
+      <g id="loading" display="none">
+        <rect
+          x="0"
+          y="0"
+          opacity="0.5"
+          height="100%"
+          width="100%"
+          fill="#000000"
+        ></rect>
+        <image
+          xlink:href="./images/lailai.gif"
+          x="0"
+          y="180"
+          width="84%"
+          height="250"
+        />
       </g>
     </svg>
   </div>
   <script>
     var myAuto = document.getElementById("myaudio");
-    var num = 0;
+    var num = 1;
+    var randomNum=Math.ceil(Math.random()*10);
+    var loading = document.getElementById("loading");
     window.onload = function () {
       myAuto.play();
       myAuto.pause();
@@ -105,13 +123,14 @@
 
     function showPackage() {
       myAuto.play();
-      if (num != 3) {
-        num = num + 1;
-      } else if (num == 3) {
+  if (num == randomNum) {
         setTimeout(function () {
+          loading.setAttribute("display", "block");
           //跳转到结果页面
           window.location.href = "https://www.baidu.com/";
         }, 1000);
+      }else{
+        num = num + 1;
       }
     }
   </script>
